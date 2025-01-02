@@ -1,27 +1,29 @@
-Hashmap implementation in c++ only using STL (unordered map)
+# HashMap Implementation in C++
 
-Run command: g++ --std=c++17 main.cpp hashmap.cpp && ./a.out
+An implementation of a hashmap in C++ using only the Standard Template Library (STL) (not `std::unordered_map`).
 
+## Basic Concept
 
-bug in hashmap
---------------
-When we come up with the idx from the hash we use the size of the associative array, if that size increases, then the next time we try to access that value the idx will be different. The only solution I can think of is to create a bigger empty array, then re-insert all the old values into the array.
+The hashmap works as follows:
 
-Solution
-----------
-To resize:
-Create a new, larger array.
-Rehash and reinsert all existing elements into the new array.
+1. A **string key** is hashed using a hash function.
+2. The hash output (a unique value) is transformed (e.g., using modulo) to produce an **index**.
+3. The index determines the location of the key-value pair in an **array**.
 
+## Supported Types
 
-string key -> hash function -> hash output (unique) -> some transform (like modulo) -> index in an array
+The hashmap supports the following value types:
+- `int`
+- `float`
+- `double`
+- `bool`
+- `char`
+- `std::string`
 
-Hash collisions can occur when two keys have the same index in the array.
+## How to Run
 
-Resize when we fill 50% 
+1. Compile the code:
+   - `make`
 
-Todo: Switch to make file
-
-structure
-- hashmap class 
-- main.cpp to use the class
+2. Run the program:
+   - `./a.out`
